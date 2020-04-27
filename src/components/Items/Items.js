@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import classes from "./Items.module.css";
+import Item from "./Item/Item";
 
-export default () => {
-    const itemsOutput = Object.keys(items).map((key) => {
-    return <li>{items[key].text}</li>;
+export default ({items}) => {
+  const itemsOutput = Object.keys(items).map((key) => {
+    return <Item item={items[key]} />;
   });
+
   return (
-      <ul className={classes.Items}>{itemsOutput}</ul>
+  <ul className={classes.Items}>{itemsOutput}</ul>
   );
 };
