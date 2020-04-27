@@ -6,13 +6,15 @@ export default ({ addItem }) => {
   function addButtonClicked({ target }) {
     const input = target.previousSibling;
 
-    addItem(input.value);
-    input.value = "";
+    if (input.value) {
+      addItem(input.value);
+      input.value = "";
+    }
     input.focus();
   }
 
   function inputKeyDown({ key, target }) {
-    if (key === "Enter") {
+    if (key === "Enter" && target.value) {
       addItem(target.value);
       target.value = "";
     }
