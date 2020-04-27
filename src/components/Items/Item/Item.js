@@ -8,14 +8,19 @@ export default ({ item, deleteItem, toggleCompleteItem }) => {
     item.completed ? classes.completed : null,
   ].join(" ");
 
+  function deleteButtonClick({ target }) {
+    target.innerText = "Loading...";
+    target.disabled = true;
+
+    deleteItem();
+  }
+
   return (
     <li className={itemClasses}>
-      {" "}
       <span onClick={toggleCompleteItem} className={classes.text}>
-        {" "}
         {item.text}
       </span>
-      <Button click={deleteItem} red>
+      <Button click={deleteButtonClick} red>
         x
       </Button>
     </li>
