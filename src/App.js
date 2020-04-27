@@ -1,13 +1,11 @@
-import React from 'react';
-import './App.css';
-import ToDo from './containers/ToDo/ToDo';
+import React from "react";
+import "./App.css";
+import ToDo from "./containers/ToDo/ToDo";
 
-function App() {
+export default () => {
   return (
     <div className="App">
       <ToDo />
     </div>
   );
-}
-
-export default App;
+};
